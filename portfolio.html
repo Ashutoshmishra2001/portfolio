@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashutosh Mishra | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #ff00cc, #333399);
+            text-align: center;
+            padding: 80px 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        header h1 {
+            font-size: 3em;
+            animation: slideInDown 1s ease-in-out;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #d1d5db;
+        }
+        nav {
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        nav a {
+            color: #f1f5f9;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s, color 0.3s;
+        }
+        nav a:hover {
+            color: #ff00cc;
+            transform: scale(1.1);
+        }
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h2 {color: #ff00cc; margin-bottom: 20px;}
+        .skills, .projects, .education {display: grid; gap: 20px;}
+        .skill-item, .project-item, .edu-item {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-item:hover, .project-item:hover, .edu-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #333399, #ff00cc);
+            color: white;
+        }
+        .contact-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .contact-links a:hover {color: #ffd700;}
+        @keyframes fadeIn {from {opacity: 0;} to {opacity: 1;}}
+        @keyframes slideInDown {from {transform: translateY(-50px); opacity: 0;} to {transform: translateY(0); opacity: 1;}}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ashutosh Mishra</h1>
+        <p>BCA Student | Aspiring Data Scientist & Analyst</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I’m Ashutosh Mishra, a BCA graduate and aspiring Data Scientist, passionate about transforming raw data into actionable insights. My journey so far has taken me through Python programming, Machine Learning, and Deep Learning — skills I’ve applied to real projects like building a product recommendation system.</p>
+        <p>I believe in “learning by building” — whether that’s designing dashboards, training predictive models, or automating insights. Currently, I’m expanding my portfolio with projects that solve real-world business problems.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="skill-item">Python, Pandas, NumPy</div>
+            <div class="skill-item">Matplotlib, Seaborn</div>
+            <div class="skill-item">SQL, Web Scraping</div>
+            <div class="skill-item">Data Visualization, EDA</div>
+            <div class="skill-item">Statistical Modeling</div>
+            <div class="skill-item">Machine Learning Algorithms</div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project-item">
+                <h3>Product Recommendation System</h3>
+                <p>Built a recommendation system using Python and Machine Learning algorithms to suggest products based on user behavior and preferences.</p>
+            </div>
+            <div class="project-item">
+                <h3>Upcoming Projects</h3>
+                <p>Currently working on end-to-end data science projects solving real-world problems. More details coming soon.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education">
+            <div class="edu-item">
+                <h3>Bachelor of Computer Applications</h3>
+                <p>Mahatma Gandhi Kashi Vidyapith University, Varanasi</p>
+                <p>Aug 2022 – Dec 2025</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Contact</h2>
+        <div class="contact-links">
+            <a href="mailto:ashutoshmis591@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/ashutosh-mishra2001" target="_blank">LinkedIn</a>
+        </div>
+        <p>&copy; 2025 Ashutosh Mishra</p>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
